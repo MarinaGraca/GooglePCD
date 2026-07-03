@@ -6,7 +6,7 @@ We want to develop a desktop grid which allows us to search words in a large new
 We'll have a Client where we can write the word to look for.\
 Clients connect to the Server, send it the Tasks they want executed by the Workers, and wait for the Server to send them the execution results.
 
-Start the Server: `java Server news`
+Start the Server: `java Server news`\
 Start the Client: `java Client localhost`
 
 GUI specs:
@@ -15,5 +15,10 @@ GUI specs:
 * search result in news list, with no of occurrences and title of the news file
 * text area where the text from the selected news file is shown
 
-Start the Worker: `java Worker localhost`\
-(...)
+Start the Worker: `java Worker localhost`
+
+Workers will connect to the Server and tell it they're Workers, and after initializing they'll do, in repeat:
+1. wait for a new Task
+2. execute the Task
+3. return the result to the Server\
+4. (...)
